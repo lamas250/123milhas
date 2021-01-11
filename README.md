@@ -1,62 +1,66 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Teste Backend 123 Milhas
 
-## About Laravel
+Introdução
+Atualmente utilizamos diversas APIs para buscar voos, e após receber os resultados é
+necessário fazer o agrupamento entre as idas e voltas.
+Nesse teste você irá desenvolver uma API que faz esse agrupamento de voos.
+Disponibilizamos uma API onde você irá consultar os vôos a serem agrupados. No total são
+15 voos, categorizados em 2 tipos de tarifa.
+Requisitos
+Será necessário utilizar algum desses frameworks para desenvolver o projeto:
+- Laravel (​ https://laravel.com/​ )
+- Lumen (​ https://lumen.laravel.com/​ )
+Entregas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Será necessário entregar todo o código gerado no teste
+- Como é uma API você também pode anexar sua rota.
+- Entregue uma documentação com todos os passos para executar seu projeto.
+- Disponibilize o código e a documentação em um link no github, ou em um arquivo
+zip para download.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+[opcional]: ​ Utilizar o GitHub para fazer a entrega é um diferencial
+[opcional]: ​ Utilizar o Swagger, Postman ou algo similar para documentar sua rota é um
+diferencial
+[opcional]:​ Disponibilizar o teste na internet, para que possa ser testado via navegador ou
+postman é um diferencial
+Pontos de Avaliação
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Toda a estrutura da sua API; (Rota, HTTP response, HTTP Status, etc..)
+- Nomenclatura e padronização das suas variáveis, funções, classes;
+- Separação de responsabilidades;
+- Lógica e otimização de processamento;
 
-## Learning Laravel
+## Requisitos
+Composer
+PHP 7.4
+## Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Clone este repositório
+$ git clone https://github.com/lamas250/123milhas.git
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd /path/123milhas
 
-## Laravel Sponsors
+# Instale as dependências
+$ composer install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Crie uma copia do .env-exmaple
+$ cp .env-example .env
 
-### Premium Partners
+# Gere a Key do .env
+$ php artisan key:generate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+# Execute a aplicação em modo de desenvolvimento
+$ php artisan serve
 
-## Contributing
+# Endpoint api teste
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<h1 align="center">
+    <a href="http://localhost:8000/api/flights">🔗 http://localhost:8000/api/flights</a>
+</h1>
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
