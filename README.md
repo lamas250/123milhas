@@ -1,5 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
 ## Teste Backend 123 Milhas
 
 Introdução
@@ -32,30 +30,30 @@ Pontos de Avaliação
 - Separação de responsabilidades;
 - Lógica e otimização de processamento;
 
-## Requisitos
+# Requisitos
 Composer
 PHP 7.4
-## Instalação
+# Instalação
 
-# Clone este repositório
+## Clone este repositório
 $ git clone https://github.com/lamas250/123milhas.git
 
-# Acesse a pasta do projeto no terminal/cmd
+## Acesse a pasta do projeto no terminal/cmd
 $ cd /path/123milhas
 
-# Instale as dependências
+## Instale as dependências
 $ composer install
 
-# Crie uma copia do .env-exmaple
+## Crie uma copia do .env-exmaple
 $ cp .env-example .env
 
-# Gere a Key do .env
+## Gere a Key do .env
 $ php artisan key:generate
 
-# Execute a aplicação em modo de desenvolvimento
+## Execute a aplicação em modo de desenvolvimento
 $ php artisan serve
 
-# Endpoint api teste
+## Endpoint api teste
 
 <h1 align="center">
     <a href="http://localhost:8000/api/flights">🔗 http://localhost:8000/api/flights</a>
