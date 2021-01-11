@@ -110,7 +110,19 @@ class FlightController extends Controller
         $finalResult['cheapestPrice'] = $finalResult['groups']['0']['price'];
         $finalResult['cheapestGroup'] = $finalResult['groups']['0']['id'];
         
-        return $finalResult;
+        try {
+            return response()->json([
+                'message' => '',
+                'data' => $finalResult,
+                'result' => true,
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+                'data' => '',
+                'result' => false,
+            ], 401);
+        }
     }
 
 }
