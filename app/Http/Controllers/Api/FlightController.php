@@ -16,9 +16,13 @@ class FlightController extends Controller
         $client = new Client();
         $request = $client->request('GET', $this->baseUrl . $query);
 
-        $array = json_decode($request->getBody(),true);
+        try {
+            $array = json_decode($request->getBody(),true);
 
-        return $array;
+            return $array;
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     public function getType($query)
@@ -47,16 +51,18 @@ class FlightController extends Controller
 
         return $outbound;
     }
-
-    public function setGroups()
+    
+    public function setGroups($flights)
     {
-        $allFligths = $this->getApiData();
+        $uniqueId = 0;
 
-        $inbound = $this->inboundFlights($allFligths);
-        $outbound = $this->outboundFlights($allFligths);
+        $inbound = $this->inboundFlights($flights);
+        $outbound = $this->outboundFlights($flights);
 
         $groupInbound = array();
         $groupOutbound = array();
+        $groups = array();
+        $group = array();
 
         foreach($inbound as $flight)
         {
@@ -68,9 +74,43 @@ class FlightController extends Controller
             $groupOutbound[$flight['fare']][$flight['price']][] = $flight;
         }
 
-        dd($groupInbound);
-        // return $groupInbound;
+        foreach($groupOutbound as $fare => $outPrice){
+            $groupInboundFare = $groupInbound[$fare];
+            if(!empty($groupInboundFare)){
+                foreach($outPrice as $priceOUT => $grupoOUT){
+                    foreach($groupInboundFare as $priceIN => $grupoIN){
+                        $group['id'] = ++$uniqueId;
+                        $group['price'] = $priceIN + $priceOUT;
+                        $group['outboundsID'] = $grupoOUT;
+                        $group['inboundsID'] = $grupoIN;
+
+                        $groups[] = $group;
+                    }
+                }
+            }
+        }
+        return $groups;
     }
 
+    public function finalResult()
+    {
+        $flights = $this->getApiData();
+
+        $flightsGroups = $this->setGroups($flights);
+        usort($flightsGroups, function($a, $b) {
+                return $a['price'] <=> $b['price'];
+        });
+
+        $finalResult = array();
+
+        $finalResult['flights'] = $flights;
+        $finalResult['groups'] = $flightsGroups;
+        $finalResult['totalGroups'] = count($finalResult['groups']);
+        $finalResult['totalFlights'] = count($finalResult['flights']);
+        $finalResult['cheapestPrice'] = $finalResult['groups']['0']['price'];
+        $finalResult['cheapestGroup'] = $finalResult['groups']['0']['id'];
+        
+        return $finalResult;
+    }
 
 }

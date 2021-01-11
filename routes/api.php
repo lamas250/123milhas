@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     
 });
 
-Route::get('flights','App\Http\Controllers\Api\FlightController@setGroups');
+Route::get('flights','App\Http\Controllers\Api\FlightController@finalResult');
